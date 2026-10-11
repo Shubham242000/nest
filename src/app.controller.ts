@@ -1,10 +1,10 @@
-import { Controller, ForbiddenException, Get, HttpException, HttpStatus, UseFilters } from '@nestjs/common';
+import { Controller, ForbiddenException, Get } from '@nestjs/common';
 import { AppService } from './app.service.js';
-import { MyFilter } from './commons/filters/my-filter.js';
+// import { MyFilter } from './commons/filters/my-filter.js';
 
 
 @Controller()
-@UseFilters(MyFilter)
+// @UseFilters(MyFilter)
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
