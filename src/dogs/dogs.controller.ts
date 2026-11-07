@@ -1,4 +1,4 @@
-import { Controller, createParamDecorator, Get, Param, Query, UseFilters } from '@nestjs/common';
+import { Controller, createParamDecorator, Get, Param, Query, SetMetadata, UseFilters } from '@nestjs/common';
 import { DogsService } from './dogs.service.js';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../guard/AuthGuard.js';
@@ -15,8 +15,9 @@ export class DogsController {
 
     @UseGuards(AuthGuard)
     @UseFilters(CustomExceptionFilter)
-    
+
     @Get('happy')
+    @SetMetadata('role', 'admin')
     getHappyDog() {
         return this.dogsService.happyDog()
     }
